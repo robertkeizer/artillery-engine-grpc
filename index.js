@@ -101,6 +101,7 @@ ArtilleryGRPCEngine.prototype.createScenario = function (scenarioSpec, ee) {
 ArtilleryGRPCEngine.prototype.buildGRPCMetadata = function () {
   const { metadata } = this.getEngineConfig()
   const grpcMetadata = new grpc.Metadata();
+  if( !metadata ){ return grpcMetadata; }
   Object.entries(metadata).forEach(([k, v]) => {
     grpcMetadata.add(k, v)
   })
